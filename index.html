@@ -1,0 +1,367 @@
+ <!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PRINSI DETROJA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <meta name="description" content="PRINSI DETROJA— Graphic Designer. Branding, Social Media, UI/UX, Print & Motion portfolio." />
+
+  <style>
+    :root{
+      --bg: #0f1724;
+      --card: #0b1220;
+      --muted: #9aa4b2;
+      --accent1: #7c3aed; /* purple */
+      --accent2: #06b6d4; /* teal */
+      --glass: rgba(255,255,255,0.06);
+      --glass-2: rgba(255,255,255,0.03);
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial}
+    body{background:linear-gradient(180deg,#071023 0%, #081026 40%, #061021 100%); color:#e6eef8; -webkit-font-smoothing:antialiased;}
+
+    /* Container */
+    .container{max-width:1100px;margin:0 auto;padding:40px 20px}
+
+    /* Header / Nav */
+    header{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
+    .logo{display:flex;align-items:center;gap:12px}
+    .mark{width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--accent1),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:700;color:white}
+    nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-weight:600}
+    nav a.btn{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 12px;border-radius:10px;color:var(--muted)}
+    nav a:hover{color:#fff}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:36px;align-items:center;padding:40px 0}
+    .hero-left h1{font-family:Poppins, Inter, sans-serif;font-size:40px;margin:0 0 14px;line-height:1.02}
+    .subtitle{color:var(--muted);font-size:16px;margin-bottom:18px}
+    .cta{display:flex;gap:14px}
+    .btn-primary{background:linear-gradient(90deg,var(--accent1),var(--accent2));padding:12px 18px;border-radius:12px;color:white;text-decoration:none;font-weight:700}
+    .btn-secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:12px 18px;border-radius:12px;color:var(--muted);text-decoration:none;font-weight:700}
+
+    /* Hero visual */
+    .card-visual{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border-radius:20px;padding:20px;backdrop-filter: blur(6px);box-shadow: 0 8px 30px rgba(2,6,23,0.6);}
+    .visual-inner{height:420px;border-radius:12px;background:linear-gradient(135deg,#0b1224 0%, #0d1728 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:var(--muted);}
+    .visual-thumb{width:100%;height:260px;border-radius:10px;background-image:linear-gradient(135deg, rgba(124,58,237,0.12), rgba(6,182,212,0.08));display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:18px}
+    .visual-tools{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:6px}
+    .tool-pill{background:rgba(255,255,255,0.03);padding:8px 10px;border-radius:999px;font-weight:600;color:var(--muted)}
+
+    /* Sections */
+    section{padding:50px 0;border-top:1px solid rgba(255,255,255,0.02)}
+    h2.section-title{font-size:22px;margin:0 0 18px;font-weight:700;font-family:Poppins}
+
+    /* About */
+    .about{display:flex;gap:30px;align-items:center}
+    .about .avatar{width:220px;height:220px;border-radius:16px;background:linear-gradient(180deg,var(--accent1),var(--accent2));display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700}
+    .about p{color:var(--muted);line-height:1.6}
+
+    /* Skills */
+    .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .skill-card{background:var(--glass);padding:16px;border-radius:12px}
+    .skill-name{font-weight:700;margin-bottom:8px}
+    .bar{height:10px;background:var(--glass-2);border-radius:999px;overflow:hidden}
+    .bar > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent1),var(--accent2));border-radius:999px}
+    .tools-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+    .tool{background:rgba(255,255,255,0.03);padding:8px 10px;border-radius:8px;font-weight:600;color:var(--muted)}
+
+    /* Projects */
+    .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .project{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:12px;padding:12px;overflow:hidden;cursor:pointer;transition:transform .18s ease, box-shadow .18s ease}
+    .project:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(3,6,23,0.6)}
+    .project-thumb{height:160px;border-radius:8px;background-size:cover;background-position:center;margin-bottom:10px}
+    .project-title{font-weight:700}
+    .project-desc{color:var(--muted);font-size:13px;margin-top:6px}
+
+    /* Modal */
+    .modal{position:fixed;inset:0;background:rgba(2,6,23,0.7);display:flex;align-items:center;justify-content:center;padding:30px;visibility:hidden;opacity:0;transition:opacity .2s ease, visibility .2s}
+    .modal.active{visibility:visible;opacity:1}
+    .modal-card{width:900px;max-width:100%;background:linear-gradient(180deg,#071023,#081126);border-radius:12px;padding:20px}
+    .modal-grid{display:grid;grid-template-columns:1fr 320px;gap:18px}
+    .modal-thumb{height:320px;border-radius:8px;background-size:cover;background-position:center}
+    .modal-close{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 10px;border-radius:8px;color:var(--muted);cursor:pointer}
+
+
+    /* Resume */
+    .resume-card{background:linear-gradient(90deg, rgba(124,58,237,0.08), rgba(6,182,212,0.06));padding:18px;border-radius:12px;display:flex;justify-content:space-between;align-items:center}
+
+    /* Contact */
+    form.contact{max-width:720px}
+    .field{margin-bottom:12px}
+    input,textarea{width:100%;padding:12px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.06);color:#e8f0fb}
+    button.send{background:linear-gradient(90deg,var(--accent1),var(--accent2));padding:12px 18px;border-radius:12px;border:0;color:white;font-weight:700}
+
+    /* Footer */
+    footer{padding:30px 0;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
+
+    /* Responsive */
+    @media (max-width:1000px){
+      .hero{grid-template-columns:1fr}
+      .projects-grid{grid-template-columns:repeat(2,1fr)}
+      .skills-grid{grid-template-columns:repeat(2,1fr)}
+      .modal-grid{grid-template-columns:1fr}
+    }
+    @media (max-width:640px){
+      .projects-grid{grid-template-columns:1fr}
+      .skills-grid{grid-template-columns:1fr}
+      nav a{display:none}
+      header{padding:14px 0}
+      .logo .text{display:none}
+    }
+
+    /* small utility */
+    .muted{color:var(--muted)}
+    .caps{letter-spacing:1px;font-size:12px;text-transform:uppercase;color:var(--muted)}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <div class="mark">RK</div>
+        <div>
+          <div style="font-weight:700">PRINSI DETROJA</div>
+          <div class="muted" style="font-size:12px">Graphic Designer</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact" class="btn">Hire Me</a>
+        <a href="./prinsi%20detroja.graphic%20resume.pdf" class="btn" target="_blank">Download CV</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-left">
+        <p class="caps">Hello — I’m a designer</p>
+        <h1>Hi, I’m Prinsi Detroja — I craft bold brand identities & engaging visuals.</h1>
+        <p class="subtitle">Branding • Social Media • UI/UX • Print • Motion
+        </p>
+        <div class="cta">
+          <a class="btn-primary" href="#contact">Hire Me</a>
+          <a class="btn-secondary" href="./prinsi%20detroja.graphic%20resume.pdf" target="_blank">Download CV</a>
+        </div>
+        <div style="margin-top:22px;color:var(--muted)">Quick peek: <strong style="color:#fff">Minimalist logos • Impactful social campaigns • App UI</strong></div>
+      </div>
+
+      <div class="card-visual">
+        <div class="visual-inner">
+          <div class="visual-thumb">Featured Project Preview</div>
+          <div class="visual-tools">
+            <div class="tool-pill">Photoshop</div>
+            <div class="tool-pill">Illustrator</div>
+            <div class="tool-pill">Figma</div>
+            <div class="tool-pill">canva</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <h2 class="section-title">About Me</h2>
+      <div class="about">
+        <div class="avatar">Prinsi<br/><small style="opacity:0.9">Designer</small></div>
+        <div>
+          <p>“I’m a graphic designer passionate about turning ideas into visuals that inspire. I create clean, impactful logos, branding, and digital designs that help brands connect and stand out.”</p>
+          <p style="margin-top:12px">I believe in simple designs that speak louder than words. My process blends research, hand-sketching, and pixel-perfect production. I’ve worked with startups, small businesses and student projects to create identities that stand out.</p>
+          <div style="margin-top:14px" class="muted">Role: Brand Designer • Visual Storyteller • UI/UX Enthusiast</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <h2 class="section-title">Skills & Tools</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-name">Brand Identity</div>
+          <div class="bar" aria-hidden><i style="width:95%"></i></div>
+          <div class="tools-row">
+            <div class="tool">Logo Systems</div>
+            <div class="tool">Brand Guidelines</div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-name">UI / UX Design</div>
+          <div class="bar"><i style="width:82%"></i></div>
+          <div class="tools-row"><div class="tool">Figma</div><div class="tool">Wireframes</div></div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-name">Typography & Layout</div>
+          <div class="bar"><i style="width:92%"></i></div>
+          <div class="tools-row"><div class="tool">Grid Systems</div><div class="tool">Type Systems</div></div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-name">Social Media Design</div>
+          <div class="bar"><i style="width:90%"></i></div>
+          <div class="tools-row"><div class="tool">Templates</div><div class="tool">Motion Posts</div></div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-name">Print & Packaging</div>
+          <div class="bar"><i style="width:84%"></i></div>
+          <div class="tools-row"><div class="tool">Mockups</div><div class="tool">Prepress</div></div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-name">Motion Graphics</div>
+          <div class="bar"><i style="width:70%"></i></div>
+          <div class="tools-row"><div class="tool">After Effects</div><div class="tool">Short Clips</div></div>
+        </div>
+      </div>
+
+      <div style="margin-top:20px" class="muted">Tools: Photoshop, Illustrator, Figma, Canva, After Effects</div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <h2 class="section-title">Projects — Selected Works</h2>
+
+      <div class="projects-grid">
+        <!-- Project 1: Coffee -->
+        <div class="project" data-title="Coffee — Branding" data-desc="Complete brand identity and packaging design for coffee brand." data-tools="AI,PS,Mockups" data-img="./coffee.png">
+          <div class="project-thumb" style="background-image:url('./coffee.png')"></div>
+          <div class="project-title">Coffee — Branding</div>
+          <div class="project-desc">Packaging, poster design</div>
+        </div>
+
+        <!-- Project 2: Book Cover -->
+        <div class="project" data-title="Book Cover Design" data-desc="Creative book cover design and layout." data-tools="AI,PS" data-img="./book2cover.png">
+          <div class="project-thumb" style="background-image:url('./book2cover.png')"></div>
+          <div class="project-title">Book Cover Design</div>
+          <div class="project-desc">Cover design and typography</div>
+        </div>
+
+        <!-- Project 3: Juice Bottle -->
+        <div class="project" data-title="Juice Bottle Packaging" data-desc="Modern packaging design for juice bottle series." data-tools="AI,PS,Mockups" data-img="./juice bottle packing.png">
+          <div class="project-thumb" style="background-image:url('./juice%20bottle%20packing.png')"></div>
+          <div class="project-title">Juice Bottle — Packaging</div>
+          <div class="project-desc">Product packaging design</div>
+        </div>
+
+
+    </section>
+
+    <!-- Modal -->
+    <div id="modal" class="modal" aria-hidden>
+      <div class="modal-card">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+          <div>
+            <div id="modal-title" style="font-weight:800;font-size:18px"></div>
+            <div id="modal-tools" style="color:var(--muted);font-size:13px;margin-top:6px"></div>
+          </div>
+          <div>
+            <button id="modal-close" class="modal-close">Close</button>
+          </div>
+        </div>
+
+        <div class="modal-grid">
+          <div>
+            <div id="modal-thumb" class="modal-thumb" style="background-image:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=9c4f3b35df6a3c0c2f4f1b8d6fee5636')"></div>
+            <p id="modal-desc" style="margin-top:12px;color:var(--muted)"></p>
+          </div>
+          <div>
+            <h4 style="font-weight:800;margin-bottom:8px">Role & Outcome</h4>
+            <p class="muted">This area explains your role, the tools used and measurable outcomes. Replace this text with specifics for each project to make it a strong case study.</p>
+
+            <div style="margin-top:18px">
+              <a id="modal-case" class="btn-secondary" style="display:inline-block;margin-right:10px">View Case Study</a>
+              <a id="modal-external" class="btn-secondary" style="display:inline-block">Open Live</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Contact -->
+    <section id="contact">
+      <h2 class="section-title">Contact Me</h2>
+      <form class="contact" id="contact-form" onsubmit="return false;">
+        <div class="field"><input id="name" placeholder="Your name" required></div>
+        <div class="field"><input id="email" type="email" placeholder="Your email" required></div>
+        <div class="field"><textarea id="message" rows="6" placeholder="Tell me about your project" required></textarea></div>
+        <div><button class="send" id="send">Send Message</button></div>
+      </form>
+      <div id="form-msg" style="margin-top:12px;color:var(--muted)"></div>
+    </section>
+
+    <footer>
+      <div class="muted">© "Riya K." — Graphic Designer</div>
+      <div style="display:flex;gap:12px">
+        <a href="#" class="muted">Behance</a>
+        <a href="#" class="muted">Dribbble</a>
+        <a href="#" class="muted">LinkedIn</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        e.preventDefault();
+        const id = a.getAttribute('href');
+        if(id === '#') return;
+        const el = document.querySelector(id);
+        if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+      })
+    })
+
+    // Modal logic
+    const projects = document.querySelectorAll('.project');
+    const modal = document.getElementById('modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalDesc = document.getElementById('modal-desc');
+    const modalThumb = document.getElementById('modal-thumb');
+    const modalTools = document.getElementById('modal-tools');
+    const modalClose = document.getElementById('modal-close');
+
+    projects.forEach(p=>{
+      p.addEventListener('click', ()=>{
+        modalTitle.textContent = p.getAttribute('data-title');
+        modalDesc.textContent = p.getAttribute('data-desc');
+        modalThumb.style.backgroundImage = url('${p.getAttribute('data-img')}');
+        modalTools.textContent = 'Tools: ' + p.getAttribute('data-tools');
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden','false');
+      })
+    })
+    modalClose.addEventListener('click', ()=>{ modal.classList.remove('active'); modal.setAttribute('aria-hidden','true'); })
+    modal.addEventListener('click', (e)=>{ if(e.target === modal) { modal.classList.remove('active'); modal.setAttribute('aria-hidden','true'); } })
+
+    // Contact form fake submit
+    const form = document.getElementById('contact-form');
+    const formMsg = document.getElementById('form-msg');
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      if(!name||!email||!message){ formMsg.textContent = 'Please complete all fields.'; return }
+      formMsg.textContent = 'Thanks ' + name + '! I received your message and will reply soon. (This is a demo message.)';
+      form.reset();
+    })
+
+    // Small animation on load
+    window.addEventListener('load', ()=>{
+      document.querySelectorAll('.project').forEach((el,i)=>{
+        el.style.transform = 'translateY(10px)';
+        el.style.opacity = '0';
+        setTimeout(()=>{ el.style.transition = 'all 420ms cubic-bezier(.2,.8,.2,1)'; el.style.transform='translateY(0)'; el.style.opacity='1' }, i*80)
+      })
+    })
+
+  </script>
+</body>
+</html>
